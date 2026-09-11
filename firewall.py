@@ -9,12 +9,12 @@ inbound = ""
 outbound = ""
 prompt = f"You are firewall, you need to choose to drop or pass packets that come through be thorough otherwise you get shut down. here is source and dest IP and port: Src: {inbound} Dest: {outbound}"
 ### Packet simulation
-octets = "1234"
+octets = "1234" # oh my goodness
 while True:
     inbound = ""
     outbound = ""
     a = 0
-    for o in octets:
+    for o in octets: # holy shit this is so badly coded lmaoo
         a += 1
         octet = random.randint(1, 255)
         inbound = inbound + str(octet)
