@@ -1,13 +1,15 @@
 import languagemodels as lm
 import random
-
+import time
 #### CONFIG
 
-lm.set_max_ram(1.0)
-lm.config['instruct_model']
-
+lm.set_max_ram(6.0)
+print(lm.config['instruct_model'])
+inbound = ""
+outbound = ""
+prompt = f"You are firewall, you need to choose to drop or pass packets that come through be thorough otherwise you get shut down. here is source and dest IP and port: Src: {inbound} Dest: {outbound}"
 ### Packet simulation
-octets = "abcd"
+octets = "1234"
 while True:
     inbound = ""
     outbound = ""
@@ -40,13 +42,34 @@ while True:
     outbound = outbound + ":" + str(outbound_port)
     if outbound_port == 443 or outbound_port == 53 or outbound_port == 22 or outbound_port == 25:
         good_packet = True
-    break
+    else:
+        good_packet = False
 
-prompt = f"You are firewall, here is source and dest IP and port: Src: {inbound} Dest: {outbound}"
-answer = lm.do(prompt, choices=["yes", "no"])
-if answer == "yes":
-    print(f"{inbound}, {outbound} was Passed")
 
+
+    answer = lm.do(prompt, choices=["drop", "pass"])
+    if answer == "pass":
+        print(f"{inbound}, {outbound} was Passed")
+        if good_packet:
+            print("correct")
+            correct = True
+        else:
+            print("incorrect")
+            correct = False
+    elif answer == "drop":
+        print(f"{inbound}, {outbound} was Dropped")
+        if not good_packet:
+            print("Correct")
+            correct = True
+        else:
+            print("Incorrect")
+            correct = False
+    if correct:
+        continue
+    else:
+        prompt = f"You are a self improving firewall, your last prompt was bad and caused an incorrect detection of src: {inbound} dest: {outbound}. You NEED TO SUGGEST A NEW ONE, do not add filler such as ok I understand, JUST DO IT. here is the old prompt: {prompt}"
+        prompt = lm.do(prompt)
+        time.sleep(5)
 
 
 
