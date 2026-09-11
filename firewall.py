@@ -63,24 +63,13 @@ while True:
         else:
             outbound = outbound + "."
 
-    inbound_direction = random.randint(0, 1)
-    if inbound_direction == 0: # going out
-        ephemeral_port = random.randint(1, 65535)
-        inbound = inbound + ":" + str(ephemeral_port)
-        common_ports = [22, 25, 53, 80, 115, 123, 118, 389, 443, 464, 500]
-        outbound_port = random.choice(common_ports)
-        outbound = outbound + ":" + str(outbound_port)
-    else: # going in
-        ephemeral_port = random.randint(1, 65535)
-        outbound = outbound + ":" + str(ephemeral_port)
-        common_ports = [22, 25, 53, 80, 115, 123, 118, 389, 443, 464, 500]
-        inbound_port = random.choice(common_ports)
-        inbound = inbound + ":" + str(inbound_port)
 
-    if inbound_direction == 1:
-        print("Inbound direction")
-    else:
-        print("outbound direction")
+    ephemeral_port = random.randint(1, 65535)
+    inbound = inbound + ":" + str(ephemeral_port)
+    common_ports = [22, 25, 53, 80, 115, 123, 118, 389, 443, 464, 500]
+    outbound_port = random.choice(common_ports)
+    outbound = outbound + ":" + str(outbound_port)
+
     print("Source =", inbound)
     print("Destination =", outbound)
     exit()
