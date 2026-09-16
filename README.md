@@ -29,3 +29,17 @@ If you cannot connect to the internet, the AI has blocked you as it cannot disti
 ## It didnt save me from an unsafe connection
 
 Then the AI determined it was safe. You simply dont know how to categorise it.
+
+# FORK YOU SWIFT308
+
+This absolute menace has FORKED MY REPOSITORY
+
+he CLEARLY doesnt think my code is good enough so that he feels he has to FIX IT
+
+WELL GET THIS, IT IS GOOD ENOUGH because I MADE IT
+
+if you feel my work is not good enough, SHOVE IT UP YOUR REPO, I dont need to cater to any high strung city kid who thinks the WORLD REVOLVES AROUND HIS AI GENERATED CODING SKILLS
+
+if he pulls off clean code, I guarantee its because he got some CLANKER TO MAKE IT FOR HIM, MY CODE IS AMAZING BECAUSE OF HOW BAD IT IS, WITH MY CODE YOU WONDER IF IT EVEN WORKS OR NOT
+
+thats how professionals do it
